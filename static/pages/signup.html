@@ -1,0 +1,69 @@
+<div class="container">
+	<form class="form-horizontal col-lg-8 col-md-4 col-sm-4" ng-submit="signup()">
+		<fieldset>
+			<legend>Signup</legend>
+			<div class="form-group">
+				<label for="inputName" class="col-lg-2 control-label">Name</label>
+				<div class="col-lg-10">
+				<input type="text" 
+					ng-model="signup_form.name"
+					class="form-control" 
+					id="inputName" 
+					placeholder="Enter your Name"/>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for="inputUsername" class="col-lg-2 control-label">Username</label>
+				<div class="col-lg-10">
+				<input type="text" 
+					ng-model="signup_form.username"
+					class="form-control" 
+					id="inputUsername" 
+					placeholder="Enter desired Username"/>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for="inputEmail" class="col-lg-2 control-label">Email</label>
+				<div class="col-lg-10">
+				<input type="email" 
+					ng-model="signup_form.email"
+					class="form-control" 
+					id="inputEmail" 
+					placeholder="Enter your Email"/>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for="inputPassword" class="col-lg-2 control-label">Password</label>
+				<div class="col-lg-10">
+				<input type="password" 
+					ng-model="signup_form.password"
+					class="form-control" 
+					id="inputPassword" 
+					placeholder="Enter your Password"/>
+				</div>
+			</div>
+
+			<div class="form-group" ng-class="signup_form.cnfClass">
+				<label for="inputCnfPassword" class="col-lg-2 control-label">Confirm Password</label>
+				<div class="col-lg-10">
+				<input type="password" 
+					ng-change="cnfpassword()"
+					ng-model="signup_form.cnfpassword"
+					class="form-control" 
+					id="inputCnfPassword" 
+					placeholder="Enter your Password again to confirm"/>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<div class="col-lg-10 col-lg-offset-2">
+					<button type="reset" class="btn btn-warning">Cancel</button>
+					<button type="submit" class="btn btn-success">Signup</button>
+				</div>
+			</div>
+		</fieldset>
+	</form>
+</div>

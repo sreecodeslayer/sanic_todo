@@ -1,0 +1,123 @@
+
+<div ng-if="username">
+	<div class="jumbotron" id="todo-stuff" ng-cloak>
+		
+		<p class="text-center">Welcome <strong>[[ username ]]</strong>, you may add/update/delete your todo list!</p>
+		<!-- Other things here! -->
+
+	</div>
+	<div class="todo-wrapper">
+			<a class="btn btn-info btn-block" href="" 
+				data-toggle="modal"
+				data-target="#new-todo-modal">
+				<i class="fa fa-plus-circle" aria-hidden="true"></i> Add new task</a><hr>
+		<div id="todo-wrapper" style="max-height: calc(90vh - 75px) !important">
+		<div class="well well-lg" ng-repeat="task in tasks track by task.id">
+			<label class="control-label">[[ task.title ]]</label>
+			<p>[[ task.description ]]</p>
+			<div class="btn-group">
+				<a href="" class="btn btn-warning btn-xs" ng-click="popEdit(task)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+				<a href="" class="btn btn-danger btn-xs" ng-click="removeTask(task)"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+			</div>
+		</div>
+		</div>
+	</div>
+
+
+<div class="modal" id="edit-todo-modal">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h4 class="modal-title">Edit Task</h4>
+			</div>
+			<div class="modal-body">
+				<form class="form-horizontal" ng-submit="editTask(update_todo_form)">
+				<fieldset>
+					<div class="form-group">
+						<label for="inputTitle" class="col-lg-2 control-label">Title</label>
+
+						<div class="col-lg-10">
+							<input type="text" 
+								ng-model="update_todo_form.title"
+								ng-value="update_todo_form.title"
+								class="form-control" 
+								id="inputTitle"
+								placeholder="Enter the title for todo" required/>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label for="inputDescription" class="col-lg-2 control-label">Description</label>
+
+						<div class="col-lg-10">
+							<textarea rows="5" 
+								style="resize: vertical !important;" 
+								ng-model="update_todo_form.description"
+								ng-value="update_todo_form.description"
+								class="form-control"
+								id="inputDescription" required></textarea>
+						</div>
+					</div>
+				<div class="modal-footer">
+					<button type="reset" class="btn btn-default" data-dismiss="modal">Close</button>
+					<button type="submit" class="btn btn-primary">Save changes</button>
+				</div>
+				</fieldset>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<div class="modal" id="new-todo-modal">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h4 class="modal-title">Add Task</h4>
+			</div>
+			<div class="modal-body">
+				<form class="form-horizontal" ng-submit="addTask(todo_form)">
+				<fieldset>
+					<div class="form-group">
+						<label for="inputTitle" class="col-lg-2 control-label">Title</label>
+
+						<div class="col-lg-10">
+							<input type="text" 
+								ng-model="todo_form.title"
+								class="form-control" 
+								id="inputTitle"
+								placeholder="Enter the title for todo" required/>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label for="inputDescription" class="col-lg-2 control-label">Description</label>
+
+						<div class="col-lg-10">
+							<textarea rows="5" 
+								style="resize: vertical !important;" 
+								ng-model="todo_form.description"
+								class="form-control"
+								id="inputDescription" required></textarea>
+						</div>
+					</div>
+				<div class="modal-footer">
+					<button type="reset" class="btn btn-default" data-dismiss="modal">Close</button>
+					<button type="submit" class="btn btn-primary">Add</button>
+				</div>
+				</fieldset>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+
+</div>
+<div ng-if="!username" class="jumbotron" id="general-stuff">
+	
+	<p class="text-center">Welcome dear user, to add/view/update your Todos, you need to <a href="/#/login">Login</a> or <a href="/#/signup">Signup</a> first!</p>
+	<!-- Other things here! -->
+</div>
