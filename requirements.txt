@@ -1,0 +1,8 @@
+sanic
+sanic-session
+sanic-auth
+sanic-jinja2
+umongo
+motor
+asyncio_redis
+passlib
