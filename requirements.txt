@@ -6,3 +6,4 @@ umongo
 motor
 asyncio_redis
 passlib
+gunicorn
